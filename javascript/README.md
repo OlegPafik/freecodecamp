@@ -5,6 +5,7 @@ Javascript Algorithms and Data Structures Certification.
 https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
 
 ## Excercises
-* palindrome.js: Palindrome Checker. Status: Pending.
-  - Status: Pending
+* Palindrome Checker
+  - source: palindrome.js
+  - status: Pending
   - TODO: Unit tests
