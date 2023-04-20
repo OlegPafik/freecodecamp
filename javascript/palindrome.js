@@ -11,4 +11,4 @@ function palindrome(str) {
   return isPalindrome
 }
   
-console.log(palindrome("eye"));
+module.exports = palindrome;
