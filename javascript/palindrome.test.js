@@ -1,14 +1,14 @@
 const palindrome = require("./palindrome");
 
-test('"eye" should be true', () => {
+test('"eye" is true', () => {
   expect(palindrome("eye")).toBe(true);
 });
 
-test("palindrome() should return boolean", () => {
+test("palindrome() is boolean", () => {
     expect(palindrome("eye")).toBe(true);
     expect(palindrome("eyed")).toBe(false);
   });
 
-test('"_eye" should return true', () => {
+test('"_eye" is true', () => {
     expect(palindrome("_eye")).toBe(true);
 })
