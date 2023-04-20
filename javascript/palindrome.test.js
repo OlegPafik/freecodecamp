@@ -1,4 +1,8 @@
 const palindrome = require("./palindrome");
-test("Only uppercase or only lowercase, without special symbols", () => {
+test('"eye" should be true', () => {
   expect(palindrome("eye")).toBe(true);
 });
+test("palindrome() should return boolean", () => {
+    expect(palindrome("eye")).toBe(true);
+    expect(palindrome("eyed")).toBe(false);
+  });
