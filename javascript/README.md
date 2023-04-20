@@ -8,4 +8,4 @@ https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
 * Palindrome Checker
   - source: palindrome.js
   - status: Pending
-  - TODO: Unit tests
+  - TODO: pass test '"_eye" should return true'
