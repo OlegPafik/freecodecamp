@@ -7,7 +7,7 @@ https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
 ## Excercises
 * Palindrome Checker
   - **source**: palindrome.js
-  - **status**: Pending
+  - **status**: Completed
   - **TODO**: pass test '"_eye" should return true'
   - **Description**:
 
