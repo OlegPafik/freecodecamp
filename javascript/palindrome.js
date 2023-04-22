@@ -4,14 +4,17 @@
  * @returns {boolean} True or False.
  */
 function palindrome(str) {  
-  const lowerCaseStr = str.toLowerCase()  
-  const alphanumericStr = lowerCaseStr.replace(/[^a-z0-9]/g,"")
+
+  function reverse(str) {
+    return str.split("").reverse().join("")
+  }
+  function removeNonAlphanumerics(str){
+    return str.replace(/[^a-z0-9]/gi,"")
+  }
   
-  const forwardStr = alphanumericStr
-  const forwardLetters = forwardStr.split("")
-  const reversedLetters = forwardLetters.reverse()
-  const reversedStr = reversedLetters.join("")
-  const isPalindrome = forwardStr == reversedStr
-  return isPalindrome
+  str = str.toLowerCase()  
+  str = removeNonAlphanumerics(str)
+  return str == reverse(str)
 }
+
 module.exports = palindrome
