@@ -3,12 +3,15 @@
  * @param {string} str - The word to check.
  * @returns {boolean} True or False.
  */
-function palindrome(str) {    
-  const forwardStr = str
-  const forwardLetters = str.split("");
-  const reversedStr = forwardLetters.reverse().join("")
+function palindrome(str) {  
+  const lowerCaseStr = str.toLowerCase()  
+  const alphanumericStr = lowerCaseStr.replace(/[^a-z0-9]/g,"")
+  
+  const forwardStr = alphanumericStr
+  const forwardLetters = forwardStr.split("")
+  const reversedLetters = forwardLetters.reverse()
+  const reversedStr = reversedLetters.join("")
   const isPalindrome = forwardStr == reversedStr
   return isPalindrome
 }
-  
-module.exports = palindrome;
+module.exports = palindrome
