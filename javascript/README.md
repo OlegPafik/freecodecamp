@@ -8,7 +8,7 @@ https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
 * Palindrome Checker
   - **source**: palindrome.js
   - **status**: Completed
-  - **TODO**: pass test '"_eye" should return true'
+  - **TODO**: -
   - **Description**:
 
     *Return true if the given string is a palindrome. Otherwise, return false.*
