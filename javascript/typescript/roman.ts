@@ -4,7 +4,16 @@
  * @returns {string} - The resulting roman numeral.
  */
 function roman(number: number): string {
-  let roman: string = String(number)
+  let dict: { [arabic: number]: string } = {
+    1: "I"
+  }
+
+  let roman: string = ""
+  
+  for (let i = 0; i < number; i++) {
+    roman = roman + dict[1]
+  }
+
   return roman
 }
 
