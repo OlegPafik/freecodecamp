@@ -16,6 +16,10 @@ test("5 is V", () => {
   expect(roman(5)).toBe("V")
 })
 
+test("8 is VIII", () => {
+  expect(roman(8)).toBe("VIII")
+})
+
 test("9 is IX", () => {
   expect(roman(9)).toBe("IX")
 })
