@@ -34,69 +34,22 @@ const roman = (arabic: number): string => {
   }
 
   /**
-   * Extract hundreds from the number and print them as 
-   * CM, D, CD and C in roman.
+   * Extract hundreds, tens and units.
    */
-  const convertHundreds = (digit: number): string => {
+  const convert = (digit: number, exponent: number): string => {
     let romans: string = ""
     if (digit == 9) {
-      romans = romans + "CM"
+      romans = romans + dict[10 ** exponent] + dict[10 ** (exponent + 1)]
     } else if (digit >= 5) {
-      romans = romans + "D"
+      romans = romans + dict[5 * (10 ** exponent)]
       for (let i = 0; i < digit - 5; i++) {
-        romans = romans + "C"
+        romans = romans + dict[10 ** exponent]
       }
     } else if (digit == 4) {
-      romans = romans + "CD"
+      romans = romans + dict[4 * (10 ** exponent)]
     } else {
       for (let i = 0; i < digit; i++) {
-        romans = romans + "C"
-      }
-    }
-    return romans
-  }
-
-  /**
-   * Extract tens from the number and print them as 
-   * XC, L, XL and X in roman.
-   */
-  const convertTens = (digit: number): string => {
-    let romans: string = ""
-    if (digit == 9) {
-      romans = romans + "XC"
-    } else if (digit >= 5) {
-      romans = romans + "L"
-      for (let i = 0; i < digit - 5; i++) {
-        romans = romans + "X"
-      }
-    } else if (digit == 4) {
-      romans = romans + "XL"
-    } else {
-      for (let i = 0; i < digit; i++) {
-        romans = romans + "X"
-      }
-    }
-    return romans
-  }
-
-  /**
-   * Extract units from the number and print them as 
-   * IX, V, IV and I in roman.
-   */
-  const convertUnits = (digit: number): string => {
-    let romans: string = ""
-    if (digit == 9) {
-      romans = romans + "IX"
-    } else if (digit >= 5) {
-      romans = romans + "V"
-      for (let i = 0; i < digit - 5; i++) {
-        romans = romans + "I"
-      }
-    } else if (digit == 4) {
-      romans = romans + "IV"
-    } else {
-      for (let i = 0; i < digit; i++) {
-        romans = romans + "I"
+        romans = romans + dict[10 ** exponent]
       }
     }
     return romans
@@ -121,7 +74,7 @@ const roman = (arabic: number): string => {
   
   const digits = getDigits(arabic)
 
-  romanNumber = convertThousands(digits[3]) + convertHundreds(digits[2]) + convertTens(digits[1]) + convertUnits(digits[0])
+  romanNumber = convertThousands(digits[3]) + convert(digits[2], 2) + convert(digits[1], 1) + convert(digits[0], 0)
 
   return romanNumber
 }
