@@ -5,13 +5,22 @@
  */
 const roman = (number: number): string => {
   let dict: { [arabic: number]: string } = {
-    1: "I"
+    1: "I",
+    5: "V"
   }
 
   let roman: string = ""
 
-  for (let i = 0; i < number; i++) {
-    roman = roman + dict[1]
+  const remainderI = number % 5
+  
+  if (remainderI == 0) {
+    roman = dict[5]
+  } else if (remainderI == 4) {
+    roman = dict[1] + dict[5]
+  } else {
+    for (let i = 0; i < remainderI; i++) {
+      roman = roman + dict[1]
+    }
   }
 
   return roman
