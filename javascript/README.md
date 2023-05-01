@@ -23,7 +23,7 @@ https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
 
     _We'll pass strings with varying formats, such as racecar, RaceCar, and race CAR among others._
 
-    *We'll also pass strings with special symbols, such as 2A3*3a2, 2A3 3a2, and 2_A3*3#A2.*
+    _We'll also pass strings with special symbols, such as 2A3*3a2, 2A3 3a2, and 2_A3*3#A2._
 
 - Roman Numeral Converter
 
