@@ -4,6 +4,9 @@
  * @returns {string} - The resulting roman numeral.
  */
 function roman(number: number): string {
-  let roman: string = String(number);
-  return roman;
+  let roman: string = String(number)
+  return roman
 }
+
+module.exports = roman
+// To test: npx jest roman.test.js

@@ -17,4 +17,4 @@ function palindrome(str: string): boolean {
 }
 
 module.exports = palindrome;
-// To test: npx jest
+// To test: npx jest palindrome.test.js
