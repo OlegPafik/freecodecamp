@@ -24,106 +24,106 @@ const roman = (arabic: number): string => {
   /**
    * Extract thousands from the number and print them as M in roman.
    */
-  const convertThousands = (input: number): number => {
-    const thousands = Math.floor(input / 1000)
-    const extract = thousands * 1000
-    const remaining = input - extract
-
+  const convertThousands = (digit: number): string => {
+    let romans: string = ""
     // Print M
-    for (let i = 0; i < thousands; i++) {
-      romansAdded = romansAdded + dict[1000]
+    for (let i = 0; i < digit; i++) {
+      romans = dict[1000] + romans
     }
-
-    return remaining
+    return romans
   }
 
   /**
    * Extract hundreds from the number and print them as 
    * CM, D, CD and C in roman.
    */
-  const convertHundreds = (input: number): number => {
-    const hundreds = Math.floor(input / 100)
-    const extract = hundreds * 100
-    const remaining = input - extract
-    if (extract == 900) {
-      romansAdded = romansAdded.substring(0, romansAdded.length - 1)
-      romansAdded = romansAdded + "CM"
-    } else if (extract >= 500) {
-      romansAdded = romansAdded + "D"
-      for (let i = 0; i < extract - 500; i = i + 100) {
-        romansAdded = romansAdded + "C"
+  const convertHundreds = (digit: number): string => {
+    let romans: string = ""
+    if (digit == 9) {
+      romans = romans + "CM"
+    } else if (digit >= 5) {
+      romans = romans + "D"
+      for (let i = 0; i < digit - 5; i++) {
+        romans = romans + "C"
       }
-    } else if (extract == 400) {
-      romansAdded = romansAdded + "CD"
+    } else if (digit == 4) {
+      romans = romans + "CD"
     } else {
-      for (let i = 0; i < extract; i = i + 100) {
-        romansAdded = romansAdded + "C"
+      for (let i = 0; i < digit; i++) {
+        romans = romans + "C"
       }
     }
-    return remaining
+    return romans
   }
 
   /**
    * Extract tens from the number and print them as 
    * XC, L, XL and X in roman.
    */
-  const convertTens = (input: number): number => {
-    const tens = Math.floor(input / 10)
-    const extract = tens * 10
-    const remaining = input - extract
-    if (extract == 90) {
-      romansAdded = romansAdded.substring(0, romansAdded.length - 1)
-      romansAdded = romansAdded + "XC"
-    } else if (extract >= 50) {
-      romansAdded = romansAdded + "L"
-      for (let i = 0; i < extract - 50; i = i + 10) {
-        romansAdded = romansAdded + "X"
+  const convertTens = (digit: number): string => {
+    let romans: string = ""
+    if (digit == 9) {
+      romans = romans + "XC"
+    } else if (digit >= 5) {
+      romans = romans + "L"
+      for (let i = 0; i < digit - 5; i++) {
+        romans = romans + "X"
       }
-    } else if (extract == 40) {
-      romansAdded = romansAdded + "XL"
+    } else if (digit == 4) {
+      romans = romans + "XL"
     } else {
-      for (let i = 0; i < extract; i = i + 10) {
-        romansAdded = romansAdded + "X"
+      for (let i = 0; i < digit; i++) {
+        romans = romans + "X"
       }
     }
-    return remaining
+    return romans
   }
 
   /**
    * Extract units from the number and print them as 
    * IX, V, IV and I in roman.
    */
-  const convertUnits = (input: number): number => {
-    const units = input
-    const extract = units
-    const remaining = input - extract
-    if (extract == 9) {
-      romansAdded = romansAdded.substring(0, romansAdded.length - 1)
-      romansAdded = romansAdded + "IX"
-    } else if (extract >= 5) {
-      romansAdded = romansAdded + "V"
-      for (let i = 0; i < extract - 5; i = i + 1) {
-        romansAdded = romansAdded + "I"
+  const convertUnits = (digit: number): string => {
+    let romans: string = ""
+    if (digit == 9) {
+      romans = romans + "IX"
+    } else if (digit >= 5) {
+      romans = romans + "V"
+      for (let i = 0; i < digit - 5; i++) {
+        romans = romans + "I"
       }
-    } else if (extract == 4) {
-      romansAdded = romansAdded + "IV"
+    } else if (digit == 4) {
+      romans = romans + "IV"
     } else {
-      for (let i = 0; i < extract; i = i + 1) {
-        romansAdded = romansAdded + "I"
+      for (let i = 0; i < digit; i++) {
+        romans = romans + "I"
       }
     }
-    return remaining
+    return romans
   }
 
+  /**
+   * Extract digits from number
+   */
+  const getDigits = (input: number): Array<number> => {
+    let remainder: number
+    let digit: Array<number> = [0, 0, 0, 0]
+    digit[3] = Math.floor(input / 1000)
+    remainder = input % 1000
+    digit[2] = Math.floor(remainder / 100)
+    remainder = input % 100
+    digit[1] = Math.floor(remainder / 10)
+    digit[0] = input % 10
+    return digit
+  }
 
-  let romansAdded: string = ""
-  let notConvertedYet: number
-  notConvertedYet = convertThousands(arabic)
-  notConvertedYet = convertHundreds(notConvertedYet)
-  notConvertedYet = convertTens(notConvertedYet)
-  notConvertedYet = convertUnits(notConvertedYet)
+  let romanNumber: string = ""
+  
+  const digits = getDigits(arabic)
 
-  return romansAdded
+  romanNumber = convertThousands(digits[3]) + convertHundreds(digits[2]) + convertTens(digits[1]) + convertUnits(digits[0])
+
+  return romanNumber
 }
 
 module.exports = roman
