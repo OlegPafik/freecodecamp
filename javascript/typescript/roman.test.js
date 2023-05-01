@@ -15,3 +15,12 @@ test("4 is IV", () => {
 test("5 is V", () => {
   expect(roman(5)).toBe("V")
 })
+
+test("9 is IX", () => {
+  expect(roman(9)).toBe("IX")
+})
+
+test("12 is XII", () => {
+  expect(roman(12)).toBe("XII")
+})
+
