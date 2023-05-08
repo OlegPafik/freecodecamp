@@ -56,7 +56,7 @@ const roman = (arabic: number): string => {
   }
 
   /**
-   * Extract digits from number
+   * Extract digits from number.
    */
   const getDigits = (input: number): Array<number> => {
     let remainder: number
