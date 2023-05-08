@@ -28,7 +28,7 @@ https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
 - Roman Numeral Converter
 
   - **source**: roman.ts
-  - **status**: Pending
+  - **status**: Completed
   - **TODO**: -
   - **Description**:
 
@@ -49,3 +49,17 @@ https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/
     I 1 <br>
 
     _All roman numerals answers should be provided in upper-case._
+
+- Caesars Cipher
+  - **source**: caesars.ts
+  - **status**: Pending
+  - **TODO**: -
+  - **Description**:
+
+    _One of the simplest and most widely known ciphers is a Caesar cipher, also known as a shift cipher. In a shift cipher the meanings of the letters are shifted by some set amount._
+
+    _A common modern use is the ROT13 cipher, where the values of the letters are shifted by 13 places. Thus A ↔ N, B ↔ O and so on._
+
+    _Write a function which takes a ROT13 encoded string as input and returns a decoded string._
+
+    _All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on._
